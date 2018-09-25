@@ -1,8 +1,8 @@
 
 class messages {
     constructor(){
-        this.messages = [];
-        this.getMessages();
+        this.messages = ['apple', 'bandana', 'Guava'];
+        // this.getMessages();
     }
     getMessages() {
         let xhttp = new XMLHttpRequest();
@@ -15,7 +15,13 @@ class messages {
         xhttp.send();
     }
     displayMessage() {
-        let container = document.getElementsByClassName('messages');
-        
+        this.messages.forEach(message => {
+            let element = document.createElement("li");
+            let text = document.createTextNode(message);
+            element.appendChild(text);
+            document.getElementById('messageList').appendChild(element);
+        });
     }
 }
+let stuff = new messages();
+stuff.displayMessage();
